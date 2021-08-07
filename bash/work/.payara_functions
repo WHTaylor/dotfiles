@@ -1,0 +1,45 @@
+function start_payara {
+    asadmin start-domain --debug --domaindir "$PAYARA_DOMAINS_DIR" "domain$1"
+}
+
+function stop_payara {
+    asadmin stop-domain --domaindir "$PAYARA_DOMAINS_DIR" "domain$1"
+}
+
+function find_deploy_target {
+    local source_dir;
+    local target_ext="war";
+    case $1 in
+        users-services) source_dir="$APPS_HOME_DIR/users/users";;
+        users-frontend) source_dir="$APPS_HOME_DIR/users/users";;
+        schedule)       source_dir="$APPS_HOME_DIR/Schedule/SchedulePackage";;
+        visits)         source_dir="$APPS_HOME_DIR/Visits/VisitsPackage";;
+        proposal-lookup)source_dir="$APPS_HOME_DIR/Schedule/proposal-lookup";;
+        *)              return -1;;
+    esac
+    echo $(find $source_dir -wholename $source_dir/*/target/$1*.$target_ext);
+}
+
+function deploy {
+    local app_name=$(find_deploy_target $1)
+    if [ -z $app_name ]; then
+        echo "Application has not been built or does not exist"
+        return -1;
+    fi
+    asadmin deploy $app_name;
+}
+
+function undeploy {
+    local app_name=$(asadmin list-applications | grep $1 | cut -d ' ' -f1)
+    if [ -z $app_name ]; then
+        echo "No app with matching name deployed";
+        return -1;
+    fi
+
+    asadmin undeploy $app_name;
+}
+
+function redeploy {
+    undeploy $1 && deploy $1
+}
+

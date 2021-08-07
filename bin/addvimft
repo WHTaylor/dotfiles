@@ -1,0 +1,8 @@
+#!/bin/sh
+
+if [ -z "$1" ]; then
+    echo "Usage: addvimft NEWFILETYPE"
+    exit 1
+fi
+echo "au BufNewFile,BufRead *.$1 set filetype=$1" > ~/.vim/ftdetect/$1.vim
+touch ~/.vim/ftplugin/$1.vim
