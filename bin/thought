@@ -4,4 +4,4 @@ f="$HOME/Documents/thoughts";
 d="$(date +%d/%m/%y)";
 n=$(expr $(grep "\-\-\- $d" $f | wc -l) + 1);
 printf "\n--- $d $n\n" >> $f
-vim "+normal zz Go" +startinsert $f
+vim "+normal Gzzo" +startinsert $f

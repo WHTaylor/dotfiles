@@ -3,4 +3,4 @@
 f="$HOME/Documents/journal";
 d="$(date +%d/%m/%y)";
 printf "\n--- $d\n\n" >> $f
-vim "+normal zz Go" +startinsert $f
+vim "+normal Gzzo" +startinsert $f
