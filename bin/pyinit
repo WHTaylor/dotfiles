@@ -8,7 +8,12 @@ fi
 
 echo "Creating venv"
 python -m venv venv
-. ./venv/Scripts/activate
+if [[ -r ./venv/Scripts/activate ]]; then
+    . ./venv/Scripts/activate;
+else
+    . ./venv/bin/activate
+fi
+
 echo "Updating pip"
 python -m pip install --upgrade pip
 
