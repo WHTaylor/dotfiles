@@ -3,6 +3,7 @@ let mapleader = " "
 set nocompatible
 syntax on
 set wildmenu
+filetype plugin indent on
 
 set termguicolors
 silent! colo ron
