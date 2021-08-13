@@ -10,7 +10,7 @@ if [[ -r ~/quotes ]]; then
     echo "- $quote -"
 fi
 
-PATH="~/bin:$PATH"
+PATH="~/bin:~/.nimble/bin:$PATH"
 [ -f ~/.bash_aliases ] && . ~/.bash_aliases
 [ -r ~/bash/.utils ] && . ~/bash/.utils
 [ -r ~/bash/.completion ] && . ~/bash/.completion
