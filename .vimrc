@@ -62,4 +62,17 @@ function! Scratch()
     lcd ~
     file scratch
 endfunction
-nnoremap <leader>z :call Scratch()<CR>i
+nnoremap <leader>z :call Scratch()<CR>
+
+exec pathogen#infect()
+fun! JumpToDef()
+  if exists("*GotoDefinition_" . &filetype)
+    call GotoDefinition_{&filetype}()
+  else
+    exe "norm! \<C-]>"
+  endif
+endf
+
+" Jump to tag
+nnoremap <leader>g :call JumpToDef()<cr>
+inoremap <M-g> <esc>:call JumpToDef()<cr>i
