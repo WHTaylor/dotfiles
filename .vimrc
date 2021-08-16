@@ -62,4 +62,4 @@ function! Scratch()
     lcd ~
     file scratch
 endfunction
-nnoremap <leader>z :call Scratch()<CR>
+nnoremap <leader>z :call Scratch()<CR>i
