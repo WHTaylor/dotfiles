@@ -38,10 +38,11 @@ nnoremap <leader>h :set hlsearch! hlsearch?<CR>
 nnoremap <leader>t :e ~/todo<CR>
 nnoremap <leader>s :%s/
 nnoremap <leader>w :%s/\s\+$//g<CR>
-nnoremap <F2> :bprev<CR>
-nnoremap <F3> :bnext<CR>
 nnoremap <leader>e :Explore<CR>
 nnoremap <leader>c :let @/ = "" <bar> echo "search cleared" <CR>
+nnoremap <F2> :bprev<CR>
+nnoremap <F3> :bnext<CR>
+let @p = "f,lr\<CR>" "Move next function parameter to new line
 
 "Typo helper
 command! Wq wq
