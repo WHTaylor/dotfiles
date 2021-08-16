@@ -12,3 +12,5 @@ alias g=git
 complete -o bashdefault -o default -o nospace -F __git_wrap__git_main g
 
 alias dotfiles="git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME"
+complete -o bashdefault -o default -o nospace -F __git_wrap__git_main dotfiles
+dotfiles config --local status.showUntrackedFiles no
