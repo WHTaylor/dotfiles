@@ -4,6 +4,7 @@ set nocompatible
 syntax on
 set wildmenu
 filetype plugin indent on
+set incsearch
 
 set termguicolors
 silent! colo ron
@@ -39,7 +40,7 @@ nnoremap <leader>t :e ~/todo<CR>
 nnoremap <leader>s :%s/
 nnoremap <leader>w :%s/\s\+$//g<CR>
 nnoremap <leader>e :Explore<CR>
-nnoremap <leader>c :let @/ = "" <bar> echo "search cleared" <CR>
+nnoremap <leader>cs :let @/ = "" <bar> echo "search cleared" <CR>
 nnoremap <F2> :bprev<CR>
 nnoremap <F3> :bnext<CR>
 let @p = "f,lr\<CR>" "Move next function parameter to new line
@@ -76,3 +77,14 @@ endf
 " Jump to tag
 nnoremap <leader>g :call JumpToDef()<cr>
 inoremap <M-g> <esc>:call JumpToDef()<cr>i
+
+" For writing React, turns 'word' into 'const [word, setWord] = useState();'
+" Should move into js autocmd
+fun! CreateUseState()
+    let varName = expand("<cword>")
+    let capitalized = substitute(varName, '\v(\a)', '\u\1', "")
+    let output = "const [" . varName . ", set" . capitalized . "] = useState();"
+    call setline(".", substitute(getline("."), varName, output, ""))
+    call cursor("0", col("$") - 2)
+endf
+nnoremap <leader>cus :call CreateUseState()<CR>i
