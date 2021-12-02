@@ -79,4 +79,10 @@ silent! colo ron
 silent! colo sonokai
 silent! colo deus
 
+" ctermfg and bg are both set to 10 by default, making the text unreadable.
+if g:colors_name == 'deus'
+    hi StatusLine ctermbg=2 ctermfg=7 cterm=bold guibg=NONE guifg=NONE gui=NONE
+    hi StatusLineNC ctermbg=8 ctermfg=7 cterm=bold guibg=NONE guifg=NONE gui=NONE
+endif
+
 nnoremap gd :ALEGoToDefinition<CR>
