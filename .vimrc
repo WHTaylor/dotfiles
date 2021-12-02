@@ -65,18 +65,8 @@ function! Scratch()
 endfunction
 nnoremap <leader>z :call Scratch()<CR>
 
-exec pathogen#infect()
-fun! JumpToDef()
-  if exists("*GotoDefinition_" . &filetype)
-    call GotoDefinition_{&filetype}()
-  else
-    exe "norm! \<C-]>"
-  endif
-endf
-
-" Jump to tag
-nnoremap <leader>g :call JumpToDef()<cr>
-inoremap <M-g> <esc>:call JumpToDef()<cr>i
+call plug#begin('~/.vim/plugged')
+call plug#end()
 
 " For writing React, turns 'word' into 'const [word, setWord] = useState();'
 " Should move into js autocmd
