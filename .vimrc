@@ -7,10 +7,6 @@ filetype plugin indent on
 set incsearch
 
 set termguicolors
-silent! colo ron
-silent! colo sonokai
-silent! colo zenburn
-silent! colo deus
 
 set hlsearch
 set number relativenumber
@@ -75,6 +71,12 @@ Plug 'tpope/vim-rhubarb' " Github extensions for vim-fugitive
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-repeat'
 Plug 'sheerun/vim-polyglot'
+Plug 'ajmwagar/vim-deus'
+Plug 'sainnhe/sonokai'
 call plug#end()
+
+silent! colo ron
+silent! colo sonokai
+silent! colo deus
 
 nnoremap gd :ALEGoToDefinition<CR>
