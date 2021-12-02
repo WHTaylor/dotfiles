@@ -779,7 +779,7 @@ call s:HL('BufTabLineActive', s:fg4, s:bg2)
 call s:HL('BufTabLineHidden', s:fg1, s:bg2)
 call s:HL('BufTabLineFill', s:bg0, s:bg2)
 
-hi StatusLine ctermbg=2 ctermfg=7 cterm=bold guibg=NONE guifg=NONE gui=NONE
+hi StatusLine ctermbg=22 ctermfg=7 cterm=bold guibg=NONE guifg=NONE gui=NONE
 hi StatusLineNC ctermbg=0 ctermfg=8 cterm=NONE guibg=NONE guifg=NONE gui=NONE
 
 " }}}
