@@ -67,8 +67,17 @@ nnoremap <leader>z :call Scratch()<CR>
 
 autocmd! BufWritePost $MYVIMRC source $MYVIMRC
 
+" Plugins
 call plug#begin('~/.vim/plugged')
+Plug 'dense-analysis/ale'
+Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-rhubarb' " Github extensions for vim-fugitive
+Plug 'tpope/vim-surround'
+Plug 'tpope/vim-repeat'
+Plug 'sheerun/vim-polyglot'
 call plug#end()
+
+nnoremap gd :ALEGoToDefinition<CR>
 
 " For writing React, turns 'word' into 'const [word, setWord] = useState();'
 " Should move into js autocmd
