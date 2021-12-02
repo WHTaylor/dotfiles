@@ -78,14 +78,3 @@ Plug 'sheerun/vim-polyglot'
 call plug#end()
 
 nnoremap gd :ALEGoToDefinition<CR>
-
-" For writing React, turns 'word' into 'const [word, setWord] = useState();'
-" Should move into js autocmd
-fun! CreateUseState()
-    let varName = expand("<cword>")
-    let capitalized = substitute(varName, '\v(\a)', '\u\1', "")
-    let output = "const [" . varName . ", set" . capitalized . "] = useState();"
-    call setline(".", substitute(getline("."), varName, output, ""))
-    call cursor("0", col("$") - 2)
-endf
-nnoremap <leader>cus :call CreateUseState()<CR>i
