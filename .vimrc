@@ -65,6 +65,8 @@ function! Scratch()
 endfunction
 nnoremap <leader>z :call Scratch()<CR>
 
+autocmd! BufWritePost $MYVIMRC source $MYVIMRC
+
 call plug#begin('~/.vim/plugged')
 call plug#end()
 
