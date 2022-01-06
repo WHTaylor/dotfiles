@@ -22,7 +22,4 @@ alias bgb='mvnci &> ~/build &'
 alias update_wsdl='py $APPS_HOME_DIR/ISISBusApps/Tools/WsdlUpdater/wsdl_updater.py'
 alias search_code="grep -rI --exclude={\*.wsdl,Reference.cs,Reference1.cs,\*.html,\*.class,\*.xml,\*.xsd,\*.designer.cs} --exclude-dir={bin,obj,.git}"
 
-alias morning="start_payara 1 & docker start oracleXE"
-
-# Mount main working directory as w. Will change over time
-[[ -d /w ]] || subst W: C:/Users/rop61488/projects/work/LiveIngestEndToEndTests
+[ -r ~/bash/work/.payara_functions ] && . ~/bash/work/.payara_functions

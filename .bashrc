@@ -10,11 +10,12 @@ if [[ -r ~/quotes ]]; then
     echo "- $quote -"
 fi
 
-PATH="~/bin:~/.nimble/bin:$PATH"
-[ -f ~/.bash_aliases ] && . ~/.bash_aliases
+PATH="~/bin:$PATH:~/.nimble/bin"
+
+[ -r ~/.bash_aliases ] && . ~/.bash_aliases
 [ -r ~/bash/.utils ] && . ~/bash/.utils
 [ -r ~/bash/.completion ] && . ~/bash/.completion
-[[ "rop61488" == $USERNAME ]] && . ~/bash/work/.payara_functions
+[ "rop61488" == $USERNAME ] && . ~/bash/work/.bash_profile
 
 # Everything below comes from stock manjaro. Not sure how portable it is.
 
