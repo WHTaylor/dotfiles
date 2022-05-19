@@ -1,3 +1,23 @@
+# Opens the github page for the current git repository in your browser
+# git@github.com:jasonneylon/dotfiles.git
+# https://github.com/jasonneylon/dotfiles/
+# Adapted from https://jasonneylon.wordpress.com/2011/04/22/opening-github-in-your-browser-from-the-terminal/
+function gh() {
+  remote=$(git config --get remote.origin.url)
+  if [ "$remote" == "" ]
+    then
+     echo "Not a git repository or no remote.origin.url set"
+     exit 1;
+  fi
+
+  remote=${remote/git\@github\.com\:/https://github.com/}
+  remote=${remote/\.git/\/tree/}
+  branch="$(git symbolic-ref HEAD 2>/dev/null)" || "(unnamed branch)"     # detached HEAD
+  branch=${branch##refs/heads/}
+  remote=$remote/$branch
+  start $remote
+}
+
 colors() {
 	local fgc bgc vals seq0
 

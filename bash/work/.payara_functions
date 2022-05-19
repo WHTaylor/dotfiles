@@ -17,11 +17,11 @@ function find_deploy_target {
         proposal-lookup)source_dir="$APPS_HOME_DIR/Schedule/proposal-lookup";;
         *)              return -1;;
     esac
-    echo $(find $source_dir -wholename $source_dir/*/target/$1*.$target_ext);
+    echo $(find $source_dir -wholename "$source_dir/*/target/$1*.$target_ext");
 }
 
 function deploy {
-    local app_name=$(find_deploy_target $1)
+    local app_name=$(find_deploy_target $1);
     if [ -z $app_name ]; then
         echo "Application has not been built or does not exist"
         return -1;
@@ -40,6 +40,6 @@ function undeploy {
 }
 
 function redeploy {
-    undeploy $1 && deploy $1
+    undeploy $1 && deploy $1;
 }
 

@@ -65,12 +65,10 @@ autocmd! BufWritePost $MYVIMRC source $MYVIMRC
 
 " Plugins
 call plug#begin('~/.vim/plugged')
-Plug 'dense-analysis/ale'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-rhubarb' " Github extensions for vim-fugitive
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-repeat'
-Plug 'sheerun/vim-polyglot'
 Plug 'ajmwagar/vim-deus'
 Plug 'sainnhe/sonokai'
 call plug#end()
@@ -84,5 +82,3 @@ if g:colors_name == 'deus'
     hi StatusLine ctermbg=2 ctermfg=7 cterm=bold guibg=NONE guifg=NONE gui=NONE
     hi StatusLineNC ctermbg=8 ctermfg=7 cterm=bold guibg=NONE guifg=NONE gui=NONE
 endif
-
-nnoremap gd :ALEGoToDefinition<CR>
