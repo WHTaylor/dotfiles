@@ -15,7 +15,8 @@ function gh() {
   branch="$(git symbolic-ref HEAD 2>/dev/null)" || "(unnamed branch)"     # detached HEAD
   branch=${branch##refs/heads/}
   remote=$remote/$branch
-  start $remote
+  [ -x $(command -v start) ] && start $remote 2> /dev/null
+  [ -x $(command -v xdg-open) ] && xdg-open $remote 2> /dev/null
 }
 
 colors() {
