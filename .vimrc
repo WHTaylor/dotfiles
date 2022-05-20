@@ -69,6 +69,7 @@ Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-rhubarb' " Github extensions for vim-fugitive
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-repeat'
+Plug 'tpope/vim-commentary'
 Plug 'ajmwagar/vim-deus'
 Plug 'sainnhe/sonokai'
 call plug#end()
