@@ -31,14 +31,18 @@ nnoremap <C-l> <C-w>l
 
 "Shortcuts
 nnoremap <leader>b :ls<CR>:buffer<Space>
-nnoremap <leader>h :set hlsearch! hlsearch?<CR>
 nnoremap <leader>t :e ~/todo<CR>
+nnoremap <leader>h :set hlsearch! hlsearch?<CR>
 nnoremap <leader>s :%s/
 nnoremap <leader>w :%s/\s\+$//g<CR>
 nnoremap <leader>e :Explore<CR>
 nnoremap <leader>cs :let @/ = "" <bar> echo "search cleared" <CR>
 nnoremap <F2> :bprev<CR>
 nnoremap <F3> :bnext<CR>
+nnoremap <leader>gb :Grepper-buffers<CR>
+nnoremap <leader>gf :Grepper<CR>
+nnoremap <leader>ff :FZF<CR>
+nnoremap <leader>nt :NERDTreeFocus<CR>
 let @p = "f,lr\<CR>" "Move next function parameter to new line
 
 "Typo helper
@@ -72,7 +76,17 @@ Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-commentary'
 Plug 'ajmwagar/vim-deus'
 Plug 'sainnhe/sonokai'
+Plug 'junegunn/fzf'
+Plug 'junegunn/fzf.vim'
+Plug 'mhinz/vim-grepper'
+Plug 'preservim/nerdtree'
 call plug#end()
+
+" Start NERDTree on startup and put the cursor back in the other window.
+autocmd VimEnter * NERDTree | wincmd p
+let NERDTreeShowHidden=1
+let NERDTreeShowBookmarks=1
+let NerdTreeWinSize=25
 
 silent! colo ron
 silent! colo sonokai
