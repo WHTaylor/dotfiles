@@ -88,6 +88,10 @@ let NERDTreeShowHidden=1
 let NERDTreeShowBookmarks=1
 let NerdTreeWinSize=25
 
+" Grep over a motion (ie. gsiw will grep for word under cursor)
+nmap gs  <plug>(GrepperOperator)
+xmap gs  <plug>(GrepperOperator)
+
 silent! colo ron
 silent! colo sonokai
 silent! colo deus
