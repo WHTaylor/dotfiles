@@ -79,6 +79,7 @@ Plug 'sainnhe/sonokai'
 Plug 'junegunn/fzf'
 Plug 'junegunn/fzf.vim'
 Plug 'mhinz/vim-grepper'
+Plug '~/projects/vim-nim'
 Plug 'preservim/nerdtree'
 call plug#end()
 
@@ -91,6 +92,8 @@ let NerdTreeWinSize=25
 " Grep over a motion (ie. gsiw will grep for word under cursor)
 nmap gs  <plug>(GrepperOperator)
 xmap gs  <plug>(GrepperOperator)
+
+let g:nvim_nim_exec_nimsuggest='nimsuggest'
 
 silent! colo ron
 silent! colo sonokai
