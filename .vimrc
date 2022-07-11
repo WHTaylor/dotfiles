@@ -84,7 +84,9 @@ Plug 'preservim/nerdtree', { 'on': ['NERDTreeToggle', 'NERDTreeFocus'] }
 call plug#end()
 
 " Start NERDTree on startup and put the cursor back in the other window.
-autocmd VimEnter * NERDTree | wincmd p
+" Disabled because I don't use it all that much, and loading NERDTree on
+" windows is slow.
+" autocmd VimEnter * NERDTree | wincmd p
 let NERDTreeShowHidden=1
 let NERDTreeShowBookmarks=1
 let NerdTreeWinSize=25
