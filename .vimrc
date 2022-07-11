@@ -89,11 +89,7 @@ call plug#end()
 " autocmd VimEnter * NERDTree | wincmd p
 let NERDTreeShowHidden=1
 let NERDTreeShowBookmarks=1
-let NerdTreeWinSize=25
-
-" Grep over a motion (ie. gsiw will grep for word under cursor)
-nmap gs  <plug>(GrepperOperator)
-xmap gs  <plug>(GrepperOperator)
+let NERDTreeWinSize=25
 
 let g:nvim_nim_exec_nimsuggest='nimsuggest'
 
