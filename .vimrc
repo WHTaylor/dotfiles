@@ -76,11 +76,11 @@ Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-commentary'
 Plug 'ajmwagar/vim-deus'
 Plug 'sainnhe/sonokai'
-Plug 'junegunn/fzf'
-Plug 'junegunn/fzf.vim'
-Plug 'mhinz/vim-grepper'
-Plug '~/projects/vim-nim'
-Plug 'preservim/nerdtree'
+Plug 'junegunn/fzf', { 'on': ['FZF', 'Files'] }
+Plug 'junegunn/fzf.vim', { 'on': ['FZF', 'Files', 'Maps', 'Lines'] }
+Plug 'mhinz/vim-grepper', { 'on': 'Grepper' }
+Plug '~/projects/vim-nim', { 'for': 'nim' }
+Plug 'preservim/nerdtree', { 'on': ['NERDTreeToggle', 'NERDTreeFocus'] }
 call plug#end()
 
 " Start NERDTree on startup and put the cursor back in the other window.
