@@ -2,7 +2,12 @@
 import sys
 import re
 import time
-import curses
+try:
+    import curses
+except:
+    print("logfollow requires ncurses")
+    print("On windows, use the `windows-curses` pypi package")
+    exit(1)
 
 def get_tail_lines(filename, catch_up_N=15):
     '''
