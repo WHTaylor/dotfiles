@@ -76,22 +76,21 @@ Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-commentary'
 Plug 'ajmwagar/vim-deus'
 Plug 'sainnhe/sonokai'
-Plug 'junegunn/fzf'
-Plug 'junegunn/fzf.vim'
-Plug 'mhinz/vim-grepper'
-Plug '~/projects/vim-nim'
-Plug 'preservim/nerdtree'
+Plug 'junegunn/fzf', { 'on': ['FZF', 'Files'] }
+Plug 'junegunn/fzf.vim', { 'on': ['FZF', 'Files', 'Maps', 'Lines'] }
+Plug 'mhinz/vim-grepper', { 'on': 'Grepper' }
+Plug '~/projects/vim-nim', { 'for': 'nim' }
+Plug 'preservim/nerdtree', { 'on': ['NERDTreeToggle', 'NERDTreeFocus'] }
 call plug#end()
 
 " Start NERDTree on startup and put the cursor back in the other window.
-autocmd VimEnter * NERDTree | wincmd p
+" Disabled because I don't use it all that much, and loading NERDTree on
+" windows is slow.
+" autocmd VimEnter * NERDTree | wincmd p
+
 let NERDTreeShowHidden=1
 let NERDTreeShowBookmarks=1
-let NerdTreeWinSize=25
-
-" Grep over a motion (ie. gsiw will grep for word under cursor)
-nmap gs  <plug>(GrepperOperator)
-xmap gs  <plug>(GrepperOperator)
+let NERDTreeWinSize=25
 
 let g:nvim_nim_exec_nimsuggest='nimsuggest'
 
