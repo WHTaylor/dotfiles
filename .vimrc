@@ -87,6 +87,7 @@ call plug#end()
 " Disabled because I don't use it all that much, and loading NERDTree on
 " windows is slow.
 " autocmd VimEnter * NERDTree | wincmd p
+
 let NERDTreeShowHidden=1
 let NERDTreeShowBookmarks=1
 let NERDTreeWinSize=25
