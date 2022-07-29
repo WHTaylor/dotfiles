@@ -40,7 +40,7 @@ nnoremap <leader>cs :let @/ = "" <bar> echo "search cleared" <CR>
 nnoremap <F2> :bprev<CR>
 nnoremap <F3> :bnext<CR>
 nnoremap <leader>gb :Grepper-buffers<CR>
-nnoremap <leader>gf :Grepper<CR>
+nnoremap <leader>gg :Grepper<CR>
 nnoremap <leader>ff :FZF<CR>
 nnoremap <leader>nt :NERDTreeFocus<CR>
 let @p = "f,lr\<CR>" "Move next function parameter to new line
