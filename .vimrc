@@ -92,6 +92,8 @@ let NERDTreeShowHidden=1
 let NERDTreeShowBookmarks=1
 let NERDTreeWinSize=25
 
+let g:grepper = { 'tools': ['rg', 'git', 'grep'] }
+
 let g:nvim_nim_exec_nimsuggest='nimsuggest'
 
 silent! colo ron
