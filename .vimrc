@@ -40,7 +40,7 @@ nnoremap <leader>cs :let @/ = "" <bar> echo "search cleared" <CR>
 nnoremap <F2> :bprev<CR>
 nnoremap <F3> :bnext<CR>
 nnoremap <leader>gb :Grepper-buffers<CR>
-nnoremap <leader>gf :Grepper<CR>
+nnoremap <leader>gg :Grepper<CR>
 nnoremap <leader>ff :FZF<CR>
 nnoremap <leader>nt :NERDTreeFocus<CR>
 let @p = "f,lr\<CR>" "Move next function parameter to new line
@@ -92,14 +92,10 @@ let NERDTreeShowHidden=1
 let NERDTreeShowBookmarks=1
 let NERDTreeWinSize=25
 
+let g:grepper = { 'tools': ['rg', 'git', 'grep'] }
+
 let g:nvim_nim_exec_nimsuggest='nimsuggest'
 
 silent! colo ron
-silent! colo sonokai
 silent! colo deus
-
-" ctermfg and bg are both set to 10 by default, making the text unreadable.
-if g:colors_name == 'deus'
-    hi StatusLine ctermbg=2 ctermfg=7 cterm=bold guibg=NONE guifg=NONE gui=NONE
-    hi StatusLineNC ctermbg=8 ctermfg=7 cterm=bold guibg=NONE guifg=NONE gui=NONE
-endif
+silent! colo sonokai

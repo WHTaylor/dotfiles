@@ -2,12 +2,66 @@
 import sys
 import re
 import time
+from collections import namedtuple
+from typing import List
 try:
     import curses
 except:
     print("logfollow requires ncurses")
     print("On windows, use the `windows-curses` pypi package")
     exit(1)
+
+Rect = namedtuple("Rect", ["x", "y", "w", "h"])
+
+col_h_pad = 2
+h_height, f_height = 3, 3
+
+def calculate_columns(scr_width: int, scr_height: int, num_cols: int) -> List[Rect]:
+    col_width = (scr_width // num_cols) - col_h_pad
+    print(col_width)
+    print(scr_width)
+    cols = []
+    for i in range(num_cols):
+        x = i * (col_width + col_h_pad)
+        y = h_height
+        height = scr_height - h_height - f_height - 1
+        cols.append(Rect(x, y, col_width, height))
+    return cols
+
+class TailingWindow:
+    def __init__(self, window, tail):
+        self._window = window
+        self._tail = tail
+        self.height, self.width = self._window.getmaxyx()
+        self._history = []
+    
+    def step(self):
+        lines = next(self._tail)
+        if lines:
+            self._draw(lines)
+            self._history += lines
+            history_start = len(self._history) - 500 if len(self._history) > 500 else 0
+            self._history = self._history[history_start:]
+
+    def resize(self, new_width):
+        self._window.resize(self.height, new_width)
+        self.width = new_width
+
+    def reposition(self, new_x):
+        y, _ = self._window.getbegyx()
+        self._window.mvwin(y, new_x)
+
+    def redraw(self):
+        self._window.clear()
+        self._draw(self._history)
+
+    def _draw(self, lines):
+        for line in lines:
+            chunks = list(chunk_string(strip_crap(line), self.width))
+            for chunk in chunks:
+                self._window.scroll()
+                self._window.insstr(self.height - 1, 0, chunk)
+        self._window.refresh()
 
 def get_tail_lines(filename, catch_up_N=15):
     '''
@@ -53,6 +107,17 @@ def get_tails(env, system, prefix=""):
         elif env == "prod":
             print("todo, prod schedule")
             exit(1)
+    elif system == "visits":
+        apps = ["visits", "UserOffice"]
+
+        if env == "local":
+            log_root = r"C:/payara/domains/domain1/logs"
+        elif env == "dev":
+            print("todo, dev visits")
+            exit(1)
+        elif env == "prod":
+            print("todo, prod visits")
+            exit(1)
     return [(app, get_tail_lines(f"{log_root}\\{app}.log")) for app in apps]
 
 def chunk_string(s, w):
@@ -72,47 +137,53 @@ def strip_crap(line):
     def v(group_name): return m.group(group_name)
     return f"{v('day')}/{v('month')} {v('time')} {v('logging_class')}.{v('level')} - {v('message')}"
 
-h_height, f_height = 3, 3
+def handle_input(line, windows, stdscr):
+    new_line, new_windows = line, windows
+    if len(line) > 2:
+        new_line = ""
+        new_windows = new_windows[:-1]
+        scr_height, scr_width = stdscr.getmaxyx()
+        stdscr.clear()
+        stdscr.refresh()
+        rects = calculate_columns(scr_width, scr_height, len(new_windows))
+        for i, w in enumerate(new_windows):
+            w.resize(rects[i].w)
+            w.reposition(rects[i].x)
+            w.redraw()
+
+    return new_line, new_windows
 
 def main(stdscr, tails):
     curses.curs_set(0)
+    curses.init_pair(5, curses.COLOR_RED, curses.COLOR_WHITE)
     stdscr.clear()
     stdscr.nodelay(True)
     scr_height, scr_width = stdscr.getmaxyx()
 
-    # Setup a window for each tracked log, in vertical columns
-    num_cols = len(tails)
-    col_h_pad = 2
-    col_width = (scr_width // num_cols - 1) - col_h_pad
     windows = []
-    for i, (app, _) in enumerate(tails):
-        x = i * (col_width + col_h_pad)
-        stdscr.insstr(1, x, app) # Title in header
-        win = curses.newwin(
-            scr_height - h_height - f_height - 1,
-            col_width,
-            h_height,
-            x)
-        windows.append(win)
+    input_line = ""
+
+    rects = calculate_columns(scr_width, scr_height, len(tails))
+    # Setup a window for each tracked log, in vertical columns
+    for i, (app, tail) in enumerate(tails):
+        r = rects[i]
+        stdscr.insstr(1, r.x, app) # Title in header
+        win = curses.newwin(r.h, r.w, r.y, r.x)
         win.scrollok(True)
+        windows.append(TailingWindow(win, tail))
     stdscr.insstr(scr_height - f_height + 1, 1, "q: quit")
     stdscr.refresh()
 
     while True:
-        for i, (_, tail) in enumerate(tails):
-            lines = next(tail)
-            if lines:
-                for line in lines:
-                    chunks = list(chunk_string(strip_crap(line), col_width))
-                    for chunk in chunks:
-                        (height, _) = windows[i].getmaxyx()
-                        windows[i].scroll()
-                        windows[i].insstr(height - 1, 0, chunk)
-            windows[i].refresh()
+        for window in windows:
+            window.step()
         time.sleep(0.01)
         try:
             k = stdscr.getkey()
             if k == "q": break
+            else:
+                input_line += k
+                input_line, windows = handle_input(input_line, windows, stdscr)
         except: pass # No key pressed
 
 
