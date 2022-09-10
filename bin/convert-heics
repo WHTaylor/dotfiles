@@ -1,0 +1,9 @@
+#!/usr/bin/bash
+
+[ -z $1 ] && echo "Must provide directory" && exit 1
+[ ! -d $1 ] && echo "$1 is not a directory" && exit 1
+
+find $1 -name *.HEIC | xargs -I "{}" heif-convert "{}" "{}.jpg";
+python ~/rename.py $1;
+mkdir "$1/heics";
+find $1 -name *.HEIC -exec mv {} "$1/heics" \;
