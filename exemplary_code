@@ -1,0 +1,281 @@
+Quotes from our codebases that exemplify their quality
+
+--- ICAT4IngestLibrary.ISISInstrumentManager 22/01/2021
+```
+string extension = Path.GetExtension(fileName).ToUpper();
+if (extension.Equals(".RAW") || extension.Equals(".NXS") || extension.Equals(".TXT") || extension.Equals(".LOG") || extension.StartsWith(".S") ||extension.StartsWith(".ZIP") ||extension.StartsWith(".zip"))
+{
+    //do nothing
+}
+else
+{
+    //logger.Info("Ignoring " + filepath + " due to its extension");
+    return true;
+}
+```
+Anything starting with s is A-ok, _just in case_ ToUpper wasn't enough we better check two capitalizations of zip, inverting the condition to avoid the empty block is far too complicated, and repeated hardcoding is so much simpler than a list of acceptable file formats to iterate over.
+
+--- ICAT4IngestLibrary.Ingestor 27/01/2021
+Manually calls GC.Collect(), I'm sure for a very good reason that couldn't have been solved in a better way.
+
+--- ICAT4IngestLibrary.ISISInstrumentManager 04/02/2021
+```
+try
+{
+    foreach (ISISInstrument instrument in instruments.Values)
+    {
+        foreach (string shortCode in instrument.ShortCodes)
+        {
+            if (code == shortCode)
+            {
+                return instrument.LongName;
+            }
+        }
+    }
+    throw new Exception();
+}
+catch (Exception)
+{
+    logger.Error("Error getting full name from code: unrecognised code - " + code);
+    return code.ToUpper();
+}
+```
+AKA goto next line
+
+--- Ingestion wiki
+
+Extreme confidence in the active ingest:
+```
+Known Problems
+
+There are currently no known problems that can arise from this system. If there are then the code needs to be inspected.
+```
+
+Good to know
+
+--- XMLtoICAT.XMLtoICATWorker.cs 11/2/2021
+
+Some nesting
+
+```
+if (cachedInv != null)
+{
+    if (cachedInv.datasets != null)
+    {
+        foreach (dataset ds in cachedInv.datasets)
+        {
+            if (ds.datafiles != null)
+            {
+                foreach (datafile df in ds.datafiles)
+                {
+                    if (df.parameters != null)
+                    {
+                        foreach (datafileParameter dfp in df.parameters)
+                        {
+                            if (dfp.type.name == "run_number")
+                            {
+                                if (dfp.numericValue == runNumber)
+                                {
+                                    log.Info("Found matching investigation in cache: " + cachedInv.name + ", " + instrumentName + ", run_number: " + dfp.numericValue);
+                                    if (!matchingInvs.Contains(cachedInv))
+                                    {
+                                        matchingInvs.Add(cachedInv);
+                                        return matchingInvs;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+```
+
+--- XMLtoICAT.XMLtoICATWorker.cs 11/2/2021
+
+```
+//Investigation number
+if (icatInv.name == null)
+{
+    ...
+}
+else if (icatInv.name == xmlInvestigation.inv_number)
+{
+    //all is well
+}
+else
+{
+    //the instrument in the found investigation is different - this is very unexpected
+}
+```
+
+Good thing the comment covers the unexpected occurence so thoroughly
+Later we get the similar
+
+```
+if (icatInv.facility == null)
+{
+    icatInv.facility = values.Facility;
+}
+else if (icatInv.facility.name == values.Facility.name)
+{
+    //all is well
+}
+else
+{
+    //the facility in the found investigation is different - this is very unexpected
+    log.Warn("Facility Mismatch!");
+    System.Environment.Exit(0);
+}
+```
+
+Immediately quitting what is supposed to be an indefinitely running process. Somewhat unbelievably I think the comment actually wins out.
+
+--- ISIS IDS plugin config/isis-storage.properties.example 1/4/21
+
+Backslash heaven
+```
+#escape once for java and again for reg ex
+replacePathRegEx = \\\\\\\\isis\\\\
+```
+
+Oh and
+
+```
+#Comma separated list of secured paths, no white-space please. Escape any '\' characters
+!restrictedPaths = \\\\isis\\inst$\\,C:\Instruments\data
+```
+good to see consistency.
+
+--- ISIS IDS plugin ZipManager 1/4/21
+
+```
+@Override
+public String getFileName(String fullEntryName) {
+    int l = -1;
+    for (int i = 0; i < 5; i++) {
+        l = fullEntryName.indexOf('/', l + 1);
+    }
+    return l >= 0 ? fullEntryName.substring(l + 1) : null;
+}
+```
+ Very clear
+
+--- ERAServiceHelper 15/4/21
+```
+ass.MoreInfo = null;
+```
+This somehow gets to the core of all of my feelings for the ERA code at the moment.
+
+--- ERA DataAccess Integration tests 13/5/21
+
+It's very important to have descriptive variable names, see:
+```
+InducedActivityAssessmentToAfterExposureInstruction returnedInducedActivityAssessmentToAfterExposureInstruction = erasDbContext.InducedActivityAssessmentToAfterExposureInstructions.Find(testInducedActivityAssessmentToAfterExposureInstructionEntityId.ToArray());
+```
+
+Thankfully we never need to fit this into an sms.
+
+--- ProposalIngest RegularProposalReader 24/5/21
+
+```
+while (true)
+{
+    try
+    {
+        log.Info("Getting information from Business Systems for cycle " + cycle.cycleName);
+
+        experiments = getExperimentInfoFromScheduler(cycle);
+        experiments = getExperimentInfoFromSharePoint(experiments);
+        experiments = getUserDataFromVisitSystem(experiments);
+
+        //Break out of While True Loop
+        break;
+    }
+    catch (TimeoutException)
+    {
+        log.Warn("Timeout getting experiment info from business system for cycle " + cycle.cycleName);
+    }
+}
+```
+
+...yeah I dunno
+
+--- ProposalIngest RegularProposalReader 25/5/21
+
+```
+List<string> userNumberOfLocalContact = new List<string>();
+userNumberOfLocalContact.Add(experiment.localContactUN);
+if (userNumberOfLocalContact != null && userNumberOfLocalContact.Count == 1 && userNumberOfLocalContact[0] != null)
+{
+    userNumbersFromPropInvs.AddRange(userNumberOfLocalContact);
+}
+```
+
+userNumberOfLocalContact is never used again after this.
+
+I guess
+```
+if (experiment.localContactUN != null)
+{
+    userNumbersFromPropInvs.Add(experiment.localContactUN);
+}
+```
+was too straightforward?
+
+--- XMLtoICAT 26/8/21
+
+XMLtoICAT contains a lot of exemplary code, and also some irrefutable truths
+
+` //we've either found or not found the datset. ` (sic)
+
+--- SPSchedule 14/4/22
+
+```
+string expNo = node.ChildNodes[f].Attributes[owsExpNoFieldName].Value;
+double d = 0;
+double.TryParse(expNo, out d);
+int v = Convert.ToInt32(d);
+expNo = v.ToString();
+```
+I guess this is a way to format the string?
+
+--- Schedule 15/7/22
+
+My favourite part of receiving any gift is taking it out of the box, then putting it back in the box (if I'm really lucky I also get to put it in the first box before  taking it out!)
+
+```
+public Team getTeamByID(BigDecimal teamID) throws ScheduleApplicationException {
+    if(teamID == null){
+        throw ScheduleApplicationException.createAndLogInvalidException("Null team id sent to getTeamByID");
+    }
+    return getTeamByID(teamID.longValue());
+}
+
+public Team getTeamByID(Long teamID) throws ScheduleApplicationException {
+    BigDecimal teamIDBigD = new BigDecimal(teamID);
+    Team team = getEntityManager().find(Team.class, teamIDBigD);
+    if(team == null){
+        throw ScheduleApplicationException.createAndLogNotFoundException("Could not find team with id: [" + teamID + "]");
+    }
+
+    return team;
+}
+```
+
+Pretty sure someone got off on writing `BigD` all over the codebase.
+
+--- icat.server 6/10/22
+```
+public static Set<String> getAlphabeticEntityNames() {
+    return entityNames;
+}
+
+...
+
+public static List<String> getEntityNamesList() {
+    return alphabeticEntityNames;
+};
+```
