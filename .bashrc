@@ -17,7 +17,7 @@ PATH="$PATH:/home/will/.local/share/gem/ruby/3.0.0/bin"
 [ -r ~/bash/.utils ] && . ~/bash/.utils
 [ -r ~/bash/.completion ] && . ~/bash/.completion
 [[ "rop61488" == $USERNAME ]] && . ~/bash/work/.bash_profile
-[[ "will" == $USER ]] && . ~/bash/pc/.locations
+[[ "will" == $USER && "NDLT1087" != $HOSTNAME ]] && . ~/bash/pc/.locations
 
 # Everything below comes from stock manjaro. Not sure how portable it is.
 
