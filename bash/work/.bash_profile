@@ -8,6 +8,8 @@ export ICAT_HOME_DIR="~/projects/isis-icat"
 export PATH="$PATH:/c/payara/installations/payara-4.1.2.181/payara41/bin:/usr/local/bin/nunit-3.12/net35"
 export CDPATH=".:$APPS_HOME_DIR:$ICAT_HOME_DIR"
 
+export INGEST_XMLS_DIR="/c/fbs/other/IngestExternalXmls"
+
 alias python="winpty python.exe"
 
 alias nunit="nunit3-console.exe"
