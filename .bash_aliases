@@ -18,3 +18,4 @@ complete -o bashdefault -o default -o nospace -F __git_wrap__git_main dotfiles
 dotfiles config --local status.showUntrackedFiles no
 
 alias todo="vim ~/todo"
+function show_path_lines { echo $PATH | sed 's/:/\n/g'; }
