@@ -9,3 +9,5 @@
     ca = commit -a -m
     slog = log --oneline -15
     bd = branch -d
+[credential "https://git.devs.facilities.rl.ac.uk"]
+	provider = generic
