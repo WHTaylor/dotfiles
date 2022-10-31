@@ -1,1 +1,4 @@
-export PATH="$PATH:/mnt/c/Users/rop61488/projects/busapps/docker-orchestration"
+WIN_USER="/mnt/c/Users/rop61488"
+export PATH="$PATH:$WIN_USER/projects/busapps/docker-orchestration"
+export FBA_COMPOSE_DIR="$WIN_USER/projects/busapps/docker-orchestration"
+export WIN_REPOS_ROOT_DIR="$WIN_USER/projects/busapps"

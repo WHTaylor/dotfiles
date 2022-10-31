@@ -1,5 +1,9 @@
-export APPS_HOME_DIR="/c/Users/rop61488/projects/busapps"
-export ICAT_HOME_DIR="~/projects/icat"
+export APPS_HOME_DIR="$HOME/projects/busapps"
+export ICAT_HOME_DIR="$HOME/projects/icat"
+
+export TEST_APPLICATIONS_DIR="$ICAT_HOME_DIR/e2e-test-apps"
+export TEST_DATA_DIR="$ICAT_HOME_DIR/e2e-test-data"
+export INGEST_XMLS_DIR="/c/fbs/other/IngestExternalXmls"
 
 export DEV_LOGS="\\\\fitbawebdev\\d$\\payara\\domains\\domain1\\logs"
 export PROD_LOGS="\\\\fitbaweb1\\d$\\payara\\domains\\domain1\\logs"
