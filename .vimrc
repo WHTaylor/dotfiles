@@ -81,6 +81,7 @@ Plug 'junegunn/fzf.vim', { 'on': ['FZF', 'Files', 'Maps', 'Lines'] }
 Plug 'mhinz/vim-grepper', { 'on': 'Grepper' }
 Plug '~/projects/vim-nim', { 'for': 'nim' }
 Plug 'preservim/nerdtree', { 'on': ['NERDTreeToggle', 'NERDTreeFocus'] }
+Plug 'elixir-editors/vim-elixir'
 call plug#end()
 
 " Start NERDTree on startup and put the cursor back in the other window.
