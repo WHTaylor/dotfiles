@@ -5,8 +5,7 @@ alias tailf="tail -f"
 alias ll="ls -alF"
 function mkcd { mkdir -p $1; cd $1; }
 
-alias scs='grep -r --include \*.cs'
-alias freeze-req='pip freeze > requirements.txt'
+alias pyfreeze='pip freeze > requirements.txt'
 
 alias del_merged_branches='git branch --merged develop | grep -vE "(develop|master)" | xargs git bd'
 
@@ -18,3 +17,4 @@ complete -o bashdefault -o default -o nospace -F __git_wrap__git_main dotfiles
 dotfiles config --local status.showUntrackedFiles no
 
 alias todo="vim ~/todo"
+function show_path_lines { echo $PATH | sed 's/:/\n/g'; }

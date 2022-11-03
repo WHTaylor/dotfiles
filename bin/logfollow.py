@@ -18,8 +18,6 @@ h_height, f_height = 3, 3
 
 def calculate_columns(scr_width: int, scr_height: int, num_cols: int) -> List[Rect]:
     col_width = (scr_width // num_cols) - col_h_pad
-    print(col_width)
-    print(scr_width)
     cols = []
     for i in range(num_cols):
         x = i * (col_width + col_h_pad)
@@ -85,7 +83,10 @@ def get_tail_lines(filename, catch_up_N=15):
             line = f.readline()
         yield res
 
-def get_tails(env, system, prefix=""):
+local_payara_logs = r"C:/payara/domains/domain1/logs"
+dev_payara_logs = r"\\fitbawebdev\d$\payara\domains\domain1\logs"
+prod_payara_logs = r"\\fitbaweb1\d$\payara\domains\domain1\logs"
+def get_tails(env, system, prefix="Test"):
     if system == "live-ingest":
         apps = [prefix + a for a in ["FileWatcher", "LiveIngest", "XMLtoICAT"]]
 
@@ -100,24 +101,21 @@ def get_tails(env, system, prefix=""):
         apps = ["SCHEDULE", "UserOffice"]
 
         if env == "local":
-            log_root = r"C:/payara/domains/domain1/logs"
+            log_root = local_payara_logs
         elif env == "dev":
-            print("todo, dev schedule")
-            exit(1)
+            log_root = dev_payara_logs
         elif env == "prod":
-            print("todo, prod schedule")
-            exit(1)
+            log_root = prod_payara_logs
     elif system == "visits":
         apps = ["visits", "UserOffice"]
 
         if env == "local":
-            log_root = r"C:/payara/domains/domain1/logs"
+            log_root = local_payara_logs
         elif env == "dev":
-            print("todo, dev visits")
-            exit(1)
+            log_root = dev_payara_logs
         elif env == "prod":
-            print("todo, prod visits")
-            exit(1)
+            log_root = prod_payara_logs
+
     return [(app, get_tail_lines(f"{log_root}\\{app}.log")) for app in apps]
 
 def chunk_string(s, w):

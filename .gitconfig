@@ -1,0 +1,13 @@
+[user]
+	name = Will Taylor
+	email = william.h.taylor@stfc.ac.uk
+[core]
+    editor = vim
+    excludesFile = ~/.gitignore
+    commentChar = ";"
+[alias]
+    ca = commit -a -m
+    slog = log --oneline -15
+    bd = branch -d
+[credential "https://git.devs.facilities.rl.ac.uk"]
+	provider = generic

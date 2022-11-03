@@ -1,0 +1,3 @@
+#!/usr/bin/bash
+command=$(python3 ~/bin/expand_compose_command.py $@)
+eval $command
