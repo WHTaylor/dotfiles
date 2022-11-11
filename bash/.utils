@@ -7,7 +7,7 @@ function gh() {
   if [ "$remote" == "" ]
     then
      echo "Not a git repository or no remote.origin.url set"
-     exit 1;
+     return 1;
   fi
 
   remote=${remote/git\@github\.com\:/https://github.com/}
