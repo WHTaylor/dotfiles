@@ -90,7 +90,9 @@ command_matcher = PrefixMatcher([
 service_matcher = PrefixMatcher([
     "user-office-web-service",
     "schedule-service",
-    "proposal-lookup-service"
+    "settings-tool-service",
+    "proposal-lookup-service",
+    "visits-service"
 ])
 
 if __name__ == "__main__":
