@@ -18,12 +18,5 @@ export CDPATH=".:$APPS_HOME_DIR:$BASH_ICAT_HOME_DIR"
 
 export INGEST_XMLS_DIR="/c/fbs/other/IngestExternalXmls"
 
-alias python="winpty python.exe"
+source ~/bash/work/.bash_aliases
 
-alias nunit="nunit3-console.exe"
-
-alias apps="cd $APPS_HOME_DIR"
-alias fbs="cd /c/FBS/Apps"
-
-alias update_wsdl='py $APPS_HOME_DIR/internal-scripts/wsdl-updater/wsdl_updater.py'
-alias search_code="grep -rI --exclude={\*.wsdl,Reference.cs,Reference1.cs,\*.html,\*.class,\*.xml,\*.xsd,\*.designer.cs} --exclude-dir={bin,obj,.git}"
