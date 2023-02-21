@@ -1,0 +1,2 @@
+#!/usr/bin/bash
+md2html cv.md -o cv.html && wkhtmltopdf cv.html cv.pdf;
