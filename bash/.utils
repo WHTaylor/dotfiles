@@ -19,6 +19,10 @@ function gh() {
   [ -x $(command -v xdg-open) ] && xdg-open $remote 2> /dev/null
 }
 
+function cheat() {
+  curl "cheat.sh/$1" | less -R
+}
+
 colors() {
 	local fgc bgc vals seq0
 
