@@ -57,6 +57,14 @@ My [professional](https://github.com/WHTaylor) and [personal](https://github.com
 
 </div>
 
+<div id="contactDetails">
+
+Phone: 07999 006 288
+
+Email: w1ll100@hotmail.co.uk
+
+</div>
+
 <style>
     * {
         font-family: sans-serif;
@@ -86,5 +94,14 @@ My [professional](https://github.com/WHTaylor) and [personal](https://github.com
 
     em strong {
         font-size: large;
+    }
+
+    #contactDetails {
+        padding-top: 0.1em;
+    }
+
+    #contactDetails p {
+        font-size: small;
+        line-height: 0.1em;
     }
 </style>
