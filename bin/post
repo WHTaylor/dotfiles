@@ -1,0 +1,7 @@
+#!/usr/bin/bash
+
+dir="$HOME/projects/wonkyspecs.github.io/_posts";
+d="$(date +%Y-%m-%d)";
+fname="$dir/$d-$1.md"
+printf -- "---\nlayout: post\ntitle: INSERT TITLE\n---\n\n" >> $fname
+vim "+normal Gzzo" +startinsert $fname
