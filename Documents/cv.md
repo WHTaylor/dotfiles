@@ -20,10 +20,11 @@ _**Software Engineer at STFC** August 2020 to present_
     - Set priorities for myself and a junior developer on the project, as well as onboarding them onto the project and providing support throughout.
     - Coordinated with related teams to improve integrations and processes.
   - Substantially improved performance of Java EE and ASP.NET web services/apps.
+  - Supported junior developers.
   - Standout projects:
     - Implemented a web app for browsing/editing experimental metadata. Provided a faster, clearer and more featureful interface than an existing (abandoned) application.
     - A suite of end-to-end tests for a distributed data pipeline. Improved development velocity and stability.
-    - A metadata extractor for nexus files. Enabled the possibility of a much simpler deployment pipeline.
+    - A metadata extractor for nexus files. Significantly reduced the complexity of our deployment pipeline.
     - A template compiler for a subset of Apache Freemarker in .NET. Improved development velocity and correctness.
 
 _**Graduate Software Engineer at STFC** August 2018 to August 2020_
@@ -42,8 +43,7 @@ _**2:1 MEng Computer Science at Durham University** 2014 to 2018_
 
 ## Skills
 
- - Professional experience writing Java, C# (.NET Framework and Core), Python, HTML, CSS, JS, TS and SQL.
- - Hobby experience with many other languages, including Kotlin, Nim, Rust, C and Clojure.
+ - Professional experience writing Java, C# (.NET Framework and Core), Python, HTML, CSS, JS, TS and SQL. Hobby experience with several other languages.
  - Proficient with git, reasonably proficient with many UNIX tools.
  - Experience using many software and infrastructure tools/frameworks/libraries, such as:
    - Infrastructure: Jenkins, Docker, ActiveMQ, Payara, IIS, ELK, Ansible.
@@ -59,7 +59,7 @@ My [professional](https://github.com/WHTaylor) and [personal](https://github.com
 
 <div id="contactDetails">
 
-Phone: 07999 006 288
+Phone: 07999006288
 
 Email: w1ll100@hotmail.co.uk
 
