@@ -2,7 +2,7 @@
 
 # Will Taylor
 
-I'm a software engineer who loves building systems to solve problems. I have experience working on web services, web frontends, developer tools, and internal infrastructure projects, both greenfield and legacy.
+I'm a software engineer who loves building systems which solve problems for people. I have experience working on web services, frontends, developer tools, and internal infrastructure projects, both greenfield and legacy.
 
 Based in the UK, very strongly prefer remote positions.
 </div>
@@ -45,13 +45,13 @@ _**2:1 MEng Computer Science at Durham University** 2014 to 2018_
 
  - Professional experience writing Java, C# (.NET Framework and Core), Python, HTML, CSS, JS, TS and SQL. Hobby experience with several other languages.
  - Proficient with git, reasonably proficient with many UNIX tools.
- - Experience using many software and infrastructure tools/frameworks/libraries, such as:
-   - Infrastructure: Jenkins, Docker, ActiveMQ, Payara, IIS, ELK, Ansible.
-   - Web: Java EE, (p)react, ASP.NET, Flask, Spring, Jekyll, Gatsby, d3, Javalin.
+ - Professional experience using many software and infrastructure tools/frameworks/libraries, such as:
+   - Infrastructure: Docker, ActiveMQ, Jenkins, Payara, IIS, ELK, openstack, Ansible.
+   - Web: Java EE, react, JAX-RS, ASP.NET, Flask, Spring, Jekyll, Gatsby, d3, Javalin.
    - GUI: Qt, tkinter, IMGUI.
    - Other: numpy, matplotlib, sqlite, (J/N)unit, pytest, Nuget, dotnet, Maven, PyPI.
  - Strong written and verbal communication.
- - Comfortable with Linux and Windows.
+ - Comfortable with Linux (preferred) and Windows.
 
 My [professional](https://github.com/WHTaylor) and [personal](https://github.com/WonkySpecs) Github profiles contain examples of my work.
 
