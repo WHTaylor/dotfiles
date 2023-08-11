@@ -3,6 +3,9 @@ alias df='df -h'                          # human-readable sizes
 alias free='free -m'                      # show sizes in MB
 alias tailf="tail -f"
 alias ll="ls -alF"
+
+alias open=xdg-open
+
 function mkcd { mkdir -p $1; cd $1; }
 
 alias pyfreeze='pip freeze > requirements.txt'
