@@ -1,5 +1,7 @@
 #!/usr/bin/env python3
 
+'''Given a list of arguments, expands abbreviations into an fba-compose command'''
+
 import sys
 import subprocess
 from enum import Enum
@@ -84,16 +86,27 @@ command_matcher = PrefixMatcher([
     "logs",
     "up",
     "down",
-    "build"
+    "build",
+    "stop"
 ])
 
-service_matcher = PrefixMatcher([
-    "user-office-web-service",
+no_abbrev_services = [
+    "user-wifi-login-service",
     "schedule-service",
     "settings-tool-service",
     "proposal-lookup-service",
-    "visits-service"
-])
+    "proposal-allocations",
+    "visits-service",
+    "bisapps-db",
+    "cron-service"
+]
+services = {
+    "uows": "user-office-web-service",
+    "allocations": "proposal-allocations",
+    **{s: s for s in no_abbrev_services}
+}
+
+service_matcher = PrefixMatcher(services.keys())
 
 if __name__ == "__main__":
     if len(sys.argv) == 1:
@@ -102,7 +115,7 @@ if __name__ == "__main__":
         def expand(w):
             match = service_matcher.search(w)
             if match.type == MatchResultType.SUCCESS:
-                return match.word
+                return services[match.word]
             return w
 
         cmd_match = command_matcher.search(sys.argv[1])
