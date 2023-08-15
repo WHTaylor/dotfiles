@@ -5,7 +5,7 @@
     editor = vim
     excludesFile = ~/.gitignore
     commentChar = ";"
-	autocrlf = true
+    autocrlf = true
 [alias]
     ca = commit -a -m
     slog = log --oneline -15
