@@ -3,3 +3,7 @@ export PATH="$PATH:$WIN_USER/projects/busapps/docker-orchestration"
 export FBA_COMPOSE_DIR="$WIN_USER/projects/busapps/docker-orchestration"
 export WIN_REPOS_ROOT_DIR="$WIN_USER/projects/busapps"
 export DOCKER_BUILDKIT_ENABLED=1
+
+alias kube-dev="export KUBECONFIG=~/kubeconfig.dev-cluster"
+alias kube-prod="export KUBECONFIG=~/kubeconfig.prod-cluster"
+alias appskube="kubectl -n apps"

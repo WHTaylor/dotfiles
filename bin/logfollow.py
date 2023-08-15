@@ -86,7 +86,7 @@ def get_tail_lines(filename, catch_up_N=15):
 local_payara_logs = r"C:/payara/domains/domain1/logs"
 dev_payara_logs = r"\\fitbawebdev\d$\payara\domains\domain1\logs"
 prod_payara_logs = r"\\fitbaweb1\d$\payara\domains\domain1\logs"
-def get_tails(env, system, prefix="Test"):
+def get_tails(env, system, prefix=""):
     if system == "live-ingest":
         apps = [prefix + a for a in ["FileWatcher", "LiveIngest", "XMLtoICAT"]]
 
