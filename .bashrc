@@ -13,6 +13,8 @@ fi
 PATH="~/bin:$PATH:~/.nimble/bin"
 PATH="$PATH:/home/will/.local/share/gem/ruby/3.0.0/bin"
 
+eval `ssh-agent -s`
+
 [ -r ~/.bash_aliases ] && . ~/.bash_aliases
 [ -r ~/bash/.utils ] && . ~/bash/.utils
 [ -r ~/bash/.completion ] && . ~/bash/.completion
