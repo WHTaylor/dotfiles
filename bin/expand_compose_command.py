@@ -31,8 +31,8 @@ class MatchResult:
         return MatchResult(MatchResultType.NO_MATCH, None, [])
 
     @staticmethod
-    def non_unique(suggestsions: List[str]):
-        return MatchResult(MatchResultType.NON_UNIQUE, None, suggestsions)
+    def non_unique(suggestions: List[str]):
+        return MatchResult(MatchResultType.NON_UNIQUE, None, suggestions)
 
 
 class PrefixMatcher:
@@ -103,6 +103,7 @@ no_abbrev_services = [
 services = {
     "uows": "user-office-web-service",
     "allocations": "proposal-allocations",
+    "lookup": "proposal-lookup-service",
     **{s: s for s in no_abbrev_services}
 }
 
@@ -122,7 +123,7 @@ if __name__ == "__main__":
         cmd = cmd_match.word if cmd_match.type == MatchResultType.SUCCESS else sys.argv[1]
         args = [expand(a) for a in sys.argv[2:]]
 
-        # Always want to up detached container
+        # Always want to run containers in detached mode
         if cmd == "up" and args[0] != '-d':
             args.insert(0, '-d')
 

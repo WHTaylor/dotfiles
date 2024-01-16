@@ -7,3 +7,4 @@ export DOCKER_BUILDKIT_ENABLED=1
 alias set-kube-dev="export KUBECONFIG=~/kubeconfig.dev-cluster"
 alias set-kube-prod="export KUBECONFIG=~/kubeconfig.prod-cluster"
 alias kubeapps="kubectl -n apps"
+alias powershell.exe=pwsh.exe
