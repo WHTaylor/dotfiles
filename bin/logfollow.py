@@ -83,7 +83,7 @@ def get_tail_lines(filename, catch_up_N=15):
             line = f.readline()
         yield res
 
-def get_tails(env, prefix="Test"):
+def get_tails(env, prefix=""):
     apps = [prefix + a for a in ["FileWatcher", "LiveIngest", "XMLtoICAT"]]
 
     if env == "local":
@@ -163,9 +163,10 @@ def main(stdscr, tails):
 
 
 if __name__ == "__main__":
-    env = "prod"
-    if len(sys.argv) >= 2:
+    env = "local"
+
+    if len(sys.argv) >= 2 and not sys.argv[1].startswith("-"):
         env = sys.argv[1]
 
-    tails = get_tails(env)
+    tails = get_tails(env, prefix="Test" if "-t" in sys.argv else "")
     curses.wrapper(lambda s: main(s, tails))
