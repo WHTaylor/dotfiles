@@ -1,0 +1,26 @@
+#!/usr/bin/bash
+successes=0
+fails=0
+export JAVA_HOME="/c/Program Files/Eclipse Adoptium/jdk-17.0.10.7-hotspot/"
+
+interrupt_handler() {
+    echo "quitting";
+    exit 0;
+}
+
+trap interrupt_handler SIGINT;
+
+while true; do
+    f=$(mktemp)
+
+    eval "$@" > "$f" 2>&1
+
+    if [ $? -eq 0 ]; then
+        ((successes++))
+    else
+        ((failures++))
+        cat $f
+    fi
+
+    echo "$successes / $(( successes + failures )) successes";
+done
