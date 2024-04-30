@@ -19,6 +19,11 @@ function gh() {
   [ -x $(command -v xdg-open) ] && xdg-open $remote 2> /dev/null
 }
 
+function del_merged_branches() {
+    B="${1:-develop}"
+    git branch --merged $B | grep -vE "(develop|master)" | xargs git bd
+}
+
 function cheat() {
   curl "cheat.sh/$1" | less -R
 }
