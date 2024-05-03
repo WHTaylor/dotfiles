@@ -100,3 +100,8 @@ ex ()
     echo "'$1' is not a valid file"
   fi
 }
+
+# Make and cd to a temporary directory
+cdtemp() {
+    cd $(mktemp -d)
+}

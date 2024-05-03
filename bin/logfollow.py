@@ -83,38 +83,15 @@ def get_tail_lines(filename, catch_up_N=15):
             line = f.readline()
         yield res
 
-local_payara_logs = r"C:/payara/domains/domain1/logs"
-dev_payara_logs = r"\\fitbawebdev\d$\payara\domains\domain1\logs"
-prod_payara_logs = r"\\fitbaweb1\d$\payara\domains\domain1\logs"
-def get_tails(env, system, prefix="Test"):
-    if system == "live-ingest":
-        apps = [prefix + a for a in ["FileWatcher", "LiveIngest", "XMLtoICAT"]]
+def get_tails(env, prefix=""):
+    apps = [prefix + a for a in ["FileWatcher", "LiveIngest", "XMLtoICAT"]]
 
-        if env == "local":
-            log_root = "C:\\FBS\\Logs"
-        elif env == "dev":
-            log_root = r"\\icatdevingest\c$\FBS\Logs"
-        elif env == "prod":
-            log_root = r"\\icatliveingest\c$\FBS\Logs"
-
-    elif system == "schedule":
-        apps = ["SCHEDULE", "UserOffice"]
-
-        if env == "local":
-            log_root = local_payara_logs
-        elif env == "dev":
-            log_root = dev_payara_logs
-        elif env == "prod":
-            log_root = prod_payara_logs
-    elif system == "visits":
-        apps = ["visits", "UserOffice"]
-
-        if env == "local":
-            log_root = local_payara_logs
-        elif env == "dev":
-            log_root = dev_payara_logs
-        elif env == "prod":
-            log_root = prod_payara_logs
+    if env == "local":
+        log_root = "C:\\FBS\\Logs"
+    elif env == "dev":
+        log_root = r"\\icatdevingest\c$\FBS\Logs"
+    elif env == "prod":
+        log_root = r"\\icatliveingest\c$\FBS\Logs"
 
     return [(app, get_tail_lines(f"{log_root}\\{app}.log")) for app in apps]
 
@@ -186,12 +163,10 @@ def main(stdscr, tails):
 
 
 if __name__ == "__main__":
-    env = "prod"
-    apps = "live-ingest"
-    if len(sys.argv) >= 2:
-        env = sys.argv[1]
-    if len(sys.argv) == 3:
-        apps = sys.argv[2]
+    env = "local"
 
-    tails = get_tails(env, apps)
+    if len(sys.argv) >= 2 and not sys.argv[1].startswith("-"):
+        env = sys.argv[1]
+
+    tails = get_tails(env, prefix="Test" if "-t" in sys.argv else "")
     curses.wrapper(lambda s: main(s, tails))
