@@ -20,6 +20,8 @@ PATH="$PATH:/home/will/.local/share/gem/ruby/3.0.0/bin"
 [[ "will" == $USER && "NDLT1696" != $HOSTNAME ]] && . ~/bash/pc/.locations
 [[ "will" == $USER && "NDLT1696" == $HOSTNAME ]] && . ~/bash/wsl
 
+[[ -r "/usr/share/z/z.sh" ]] && source /usr/share/z/z.sh
+
 # Everything below comes from stock manjaro. Not sure how portable it is.
 
 # Change the window title of X terminals
