@@ -101,7 +101,7 @@ def chunk_string(s, w):
 
 date_patt = r"(?P<year>\d{4})-(?P<month>\d{2})-(?P<day>\d{2})"
 time_patt = r"(?P<time>\d{2}:\d{2}:\d{2}),\d{3}"
-thread_patt = r"\[\d+\]"
+thread_patt = r"\[(\d+|\.NET TP Worker)\]"
 level_patt = "(?P<level>[A-Z]+)"
 logging_class_patt = r"([a-zA-Z0-9]+\.)+(?P<logging_class>[a-zA-Z0-9]+)"
 pattern = f"{date_patt} {time_patt} {thread_patt} {level_patt} {logging_class_patt} - (?P<message>.+)"
