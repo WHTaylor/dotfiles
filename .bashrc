@@ -24,8 +24,12 @@ eval `ssh-agent -s`
 
 [[ -r "/usr/share/z/z.sh" ]] && source /usr/share/z/z.sh
 
-# Everything below comes from stock manjaro. Not sure how portable it is.
+# Let CTRL-S be used for command searching in interactive shells
+# https://stackoverflow.com/a/25391867
+[[ $- == *i* ]] && stty -ixon
 
+
+# Everything below comes from stock manjaro. Not sure how portable it is.
 # Change the window title of X terminals
 case ${TERM} in
 	xterm*|rxvt*|Eterm*|aterm|kterm|gnome*|interix|konsole*)
