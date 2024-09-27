@@ -10,7 +10,7 @@ if [[ -r ~/quotes ]]; then
     echo "- $quote -"
 fi
 
-PATH="~/bin:$PATH:~/.nimble/bin"
+PATH="~/bin:~/.local/bin:$PATH:~/.nimble/bin"
 PATH="$PATH:/home/will/.local/share/gem/ruby/3.0.0/bin"
 
 eval `ssh-agent -s`
