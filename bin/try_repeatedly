@@ -1,7 +1,6 @@
 #!/usr/bin/bash
 successes=0
 fails=0
-export JAVA_HOME="/c/Program Files/Eclipse Adoptium/jdk-17.0.10.7-hotspot/"
 
 interrupt_handler() {
     echo "quitting";
