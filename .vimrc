@@ -49,7 +49,8 @@ let @p = "f,lr\<CR>" "Move next function parameter to new line
 command! Wq wq
 
 "Abbreviations
-inoreabbrev sadface ʘ︵ʘ
+inoreabbrev .sad. ʘ︵ʘ
+inoreabbrev .shrug. -\_( )_/-
 
 "Paste block into terminal repl. Only works with a single split, and keeps
 "indentation so sometimes annoying for python, but simple
