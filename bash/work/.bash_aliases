@@ -1,5 +1,6 @@
-alias old_java="export JAVA_HOME=\"/c/Program Files/Eclipse Adoptium/jdk-8.0.412.8-hotspot/\""
-alias new_java="export JAVA_HOME=\"/c/Program Files/Eclipse Adoptium/jdk-17.0.12.7-hotspot/\""
+alias set-java-8="export JAVA_HOME=\"/c/Program Files/Eclipse Adoptium/jdk-8.0.432.6-hotspot/\""
+alias set-java-17="export JAVA_HOME=\"/c/Program Files/Eclipse Adoptium/jdk-17.0.13.11-hotspot/\""
+alias set-java-21="export JAVA_HOME=\"/c/Program Files/Eclipse Adoptium/jdk-21.0.5.11-hotspot/\""
 
 alias python="winpty python.exe"
 
