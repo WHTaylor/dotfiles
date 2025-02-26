@@ -91,7 +91,6 @@ command_matcher = PrefixMatcher([
 ])
 
 no_abbrev_services = [
-    "user-wifi-login-service",
     "schedule-service",
     "settings-tool-service",
     "proposal-lookup-service",
@@ -102,6 +101,7 @@ no_abbrev_services = [
 ]
 services = {
     "uows": "user-office-web-service",
+    "wifi": "user-wifi-login-service",
     "allocations": "proposal-allocations",
     "lookup": "proposal-lookup-service",
     **{s: s for s in no_abbrev_services}

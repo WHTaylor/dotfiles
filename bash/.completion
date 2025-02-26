@@ -1,5 +1,7 @@
 [ -r /usr/share/bash-completion/bash_completion ] && . /usr/share/bash-completion/bash_completion
 [ -r /usr/share/git/completion/git-completion.bash ] && . /usr/share/git/completion/git-completion.bash
+[ -r /usr/share/bash-completion/completions/git ] && . /usr/share/bash-completion/completions/git
+
 
 if [[ $(type -t __git_ps1) == "function" ]] ; then
     PS1='$(__git_ps1 " (%s) ")'
