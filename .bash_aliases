@@ -12,6 +12,7 @@ alias pyfreeze='pip freeze > requirements.txt'
 
 alias g=git
 complete -o bashdefault -o default -o nospace -F __git_wrap__git_main g
+alias gp="git pull"
 
 alias dotfiles="git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME"
 complete -o bashdefault -o default -o nospace -F __git_wrap__git_main dotfiles
