@@ -11,5 +11,16 @@
     slog = log --oneline -15
     bd = branch -d
     cp = cherry-pick
+[branch]
+    sort = -committerdate
+[tag]
+    sort = version:refname
+[diff]
+    algorithm = histogram
+    colorMoved = plain
+    mnemonicPrefix = true
+    renames = true
+[merge]
+    conflictstyle = zdiff3
 [credential "https://git.devs.facilities.rl.ac.uk"]
     provider = generic
