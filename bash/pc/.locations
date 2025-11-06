@@ -1,2 +1,2 @@
-export HDD_ROOT=/run/media/will/e1f32c45-7ea4-490e-bf9b-feb5c1e3b903
-export PLAYERS_HANDBOOK='/mnt/spinner/rpgs/DnD/D&D official 5e books/5e Players Handbook.pdf'
+export DND_ROOT='/mnt/spinner/rpgs/DnD'
+export PLAYERS_HANDBOOK="$DND_ROOT/D&D official 5e books/5e Players Handbook.pdf"

@@ -2,9 +2,7 @@
 
 # Will Taylor
 
-I'm a software engineer who loves building systems which solve problems for people. I have experience working on web services, frontends, developer tools, and internal infrastructure projects, both greenfield and legacy.
-
-Based in the UK, very strongly prefer remote positions.
+I'm a software engineer based in the UK who loves building systems which solve problems for people. I have professional experience working on web backends and frontends, developer tools and internal infrastructure projects, both greenfield and legacy.
 </div>
 
 <div>
@@ -12,29 +10,29 @@ Based in the UK, very strongly prefer remote positions.
 ## Professional Experience and Qualifications
 
 _**Software Engineer at STFC** August 2020 to present_
-  - Led redevelopment of an important but poorly maintained set of infrastructure applications:
-    - Fixed critical bugs, security issues and performance problems.
-    - Automated builds and deployments.
-    - Created an e2e test suite.
-    - Built auxiliary tools to assist operations and development work.
-    - Set priorities for myself and a junior developer on the project, as well as onboarding them onto the project and providing support throughout.
-    - Coordinated with related teams to improve integrations and processes.
-  - Substantially improved performance of Java EE and ASP.NET web services/apps.
-  - Supported junior developers.
+  - Led redevelopment of an internal data pipeline and accompanying software:
+    - Automated builds and deployments
+    - Created an end-to-end test suite
+    - Fixed critical bugs, security issues and performance problems
+    - Built auxiliary tools to assist operations and development work
+    - Set priorities for myself and junior developers on the project, as well as onboarding them and providing support
+    - Coordinated with related teams to improve integrations and processes
+  - Led design and development of a new REST API for an existing web service
   - Standout projects:
-    - Implemented a web app for browsing/editing experimental metadata. Provided a faster, clearer and more featureful interface than an existing (abandoned) application.
-    - A suite of end-to-end tests for a distributed data pipeline. Improved development velocity and stability.
-    - A metadata extractor for nexus files. Significantly reduced the complexity of our deployment pipeline.
-    - A template compiler for a subset of Apache Freemarker in .NET. Improved development velocity and correctness.
+    - A web app for browsing and editing experimental metadata. Provided a faster, clearer and more featureful interface than an existing (abandoned) application
+    - A suite of end-to-end tests for a distributed data pipeline. Improved development velocity and stability
+    - A JUnit extension library for loading test data into a DB for efficient parallel integration tests
+    - A metadata extractor for nexus files. Significantly reduced the complexity of our deployment pipeline and improved performance
+    - A task queue module for reliably running jobs in the background of a web service
 
 _**Graduate Software Engineer at STFC** August 2018 to August 2020_
- - Worked collaboratively in a group maintaining a mix of Java EE and .NET web services with ASP.NET frontends.
-   - Contributed bug fixes, new features and performance improvements.
-   - Worked closely with teammates in planning and reviews.
- - Rotated through other teams, in which I contributed to a PyQt GUI application for image reconstruction and investigated software quality tools for the CERN ATLAS trigger software.
+ - Worked collaboratively in an agile team maintaining Java EE and .NET web services with ASP.NET frontends
+   - Contributed bug fixes, new features and performance improvements
+   - Worked closely with teammates in planning and reviews
+ - Rotated through other teams, in which I contributed to a PyQt GUI application for image reconstruction and investigated software quality tools for the CERN ATLAS trigger software
  - Highlights:
-   - Gathered requirements for, designed and implemented the core of a new web service.
-   - Mentored a work experience student through a project analyzing operational data.
+   - Gathered requirements for, designed and implemented the core of a new web service
+   - Mentored a work experience student through a project analyzing operational data
 
 _**2:1 MEng Computer Science at Durham University** 2014 to 2018_
 </div>
@@ -43,15 +41,14 @@ _**2:1 MEng Computer Science at Durham University** 2014 to 2018_
 
 ## Skills
 
- - Professional experience writing Java, C# (.NET Framework and Core), Python, HTML, CSS, JS, TS and SQL. Hobby experience with several other languages.
- - Proficient with git, reasonably proficient with many UNIX tools.
+ - Professional experience writing Java, C#, typescript, javascript, Python, HTML, CSS and SQL. Hobby experience with several other languages
+ - Proficient with git, reasonably proficient with many UNIX tools
  - Professional experience using many software and infrastructure tools/frameworks/libraries, such as:
-   - Infrastructure: Docker, ActiveMQ, Jenkins, Payara, IIS, ELK, openstack, Ansible.
-   - Web: Java EE, react, JAX-RS, ASP.NET, Flask, Spring, Jekyll, Gatsby, d3, Javalin.
-   - GUI: Qt, tkinter, IMGUI.
-   - Other: numpy, matplotlib, sqlite, (J/N)unit, pytest, Nuget, dotnet, Maven, PyPI.
- - Strong written and verbal communication.
- - Comfortable with Linux (preferred) and Windows.
+   - Infrastructure: Docker, k8s, ActiveMQ, Jenkins, Payara, IIS, ELK, openstack, Ansible
+   - Web: Java/Jakarta EE, React, NextJS, react-query, Spring, Jekyll, Gatsby, d3, Javalin, ASP.NET
+   - Other: numpy, matplotlib, sqlite, (J/N)unit, pytest, Nuget, dotnet, Maven, PyPI
+ - Strong written and verbal communication
+ - Comfortable with Linux (preferred) and Windows
 
 My [professional](https://github.com/WHTaylor) and [personal](https://github.com/WonkySpecs) Github profiles contain examples of my work.
 
@@ -59,7 +56,7 @@ My [professional](https://github.com/WHTaylor) and [personal](https://github.com
 
 <div id="contactDetails">
 
-Phone: 07999006288
+Phone: +447999006288
 
 Email: w1ll100@hotmail.co.uk
 
