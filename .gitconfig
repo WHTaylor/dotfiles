@@ -22,5 +22,5 @@
     renames = true
 [merge]
     conflictstyle = zdiff3
-[credential "https://git.devs.facilities.rl.ac.uk"]
+[credential "https://git.developers.facilities.rl.ac.uk"]
     provider = generic
