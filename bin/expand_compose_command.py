@@ -96,7 +96,6 @@ no_abbrev_services = [
     "proposal-lookup-service",
     "proposal-allocations",
     "visits-service",
-    "bisapps-db",
     "cron-service"
 ]
 services = {
@@ -104,6 +103,7 @@ services = {
     "wifi": "user-wifi-login-service",
     "allocations": "proposal-allocations",
     "lookup": "proposal-lookup-service",
+    "db": "bisapps-db",
     **{s: s for s in no_abbrev_services}
 }
 
