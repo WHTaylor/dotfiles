@@ -93,8 +93,6 @@ command_matcher = PrefixMatcher([
 no_abbrev_services = [
     "schedule-service",
     "settings-tool-service",
-    "proposal-lookup-service",
-    "proposal-allocations",
     "visits-service",
     "cron-service"
 ]
