@@ -3,7 +3,6 @@
 '''Given a list of arguments, expands abbreviations into an fba-compose command'''
 
 import sys
-import subprocess
 from enum import Enum
 from typing import List, Optional
 
