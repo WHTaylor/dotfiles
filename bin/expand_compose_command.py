@@ -86,7 +86,8 @@ command_matcher = PrefixMatcher([
     "up",
     "down",
     "build",
-    "stop"
+    "stop",
+    "pull"
 ])
 
 no_abbrev_services = [
